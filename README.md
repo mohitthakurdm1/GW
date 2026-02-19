@@ -470,4 +470,3 @@ For technical issues or customization:
 **Version**: 1.0.0  
 **Last Updated**: February 2025  
 **Made with ☬ for Sarbat da Bhala (Well-being of All)**
-
