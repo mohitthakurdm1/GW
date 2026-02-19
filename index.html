@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gurudwara Sadh Sangat Sahib - Community Service, Medical Camps, Educational Support, Marriage Help. Located in Saiyyad Mohalla, Dehradun.">
+    <meta name="keywords" content="Gurudwara, Community Service, Langar, Medical Camp, Charitable Organization">
+    <meta name="author" content="Gurudwara Sadh Sangat Sahib">
+    <meta name="theme-color" content="#FF9933">
+    
+    <title>Gurudwara Sadh Sangat Sahib - Community Service & Seva</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%23FF9933'>☬</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================= CSS VARIABLES & RESET ========================= */
+        :root {
+            --kesari: #FF9933;
+            --kesari-light: #FFB366;
+            --kesari-dark: #E67E22;
+            --navy: #0B1F3A;
+            --navy-light: #1a3a5f;
+            --navy-dark: #051424;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray-light: #F5F7FA;
+            --gray-medium: #E8EEF5;
+            --gray-dark: #6B7280;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: all 0.15s ease-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--navy);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========================= TYPOGRAPHY ========================= */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Georgia', 'Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--gray-dark);
+        }
+
+        /* ========================= BUTTONS ========================= */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            white-space: nowrap;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--kesari), var(--kesari-dark));
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--kesari-dark), var(--kesari));
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            background-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-wide {
+            width: 100%;
+        }
+
+        /* ========================= LAYOUT & SPACING ========================= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section.light-bg {
+            background-color: var(--gray-light);
+        }
+
+        section.navy-bg {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        /* ========================= GRID SYSTEM ========================= */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            grid-auto-flow: dense;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        @media (max-width: 768px) {
+            .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================= CARDS ========================= */
+        .card {
+            background: var(--white);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+        }
+
+        /* ========================= ANIMATIONS ========================= */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+
+        /* ========================= NAVIGATION ========================= */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--kesari);
+        }
+
+        /* ========================= FOOTER ========================= */
+        footer {
+            background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+            color: var(--white);
+            padding: 3rem 1.5rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-section h3 {
+            color: var(--kesari);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========================= FORMS ========================= */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--gray-medium);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background-color: var(--white);
+            color: var(--navy);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--kesari);
+            box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.1);
+        }
+
+        /* ========================= FLOATING ICONS ========================= */
+        .floating-icons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 99;
+            flex-direction: column;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-btn.whatsapp {
+            background-color: #25D366;
+            color: var(--white);
+        }
+
+        .floating-btn.call {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        /* ========================= UTILITY CLASSES ========================= */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: var(--kesari);
+        }
+
+        .text-white {
+            color: var(--white);
+        }
+
+        .mb {
+            margin-bottom: 1rem;
+        }
+
+        .mt {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .floating-icons {
+                bottom: 1rem;
+                right: 1rem;
+                flex-direction: row;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* ========================= SCROLLBAR ========================= */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--kesari);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <script>
+        const { useState, useEffect } = React;
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        // ============ APP COMPONENT ============
+        function App() {
+            const [currentPage, setCurrentPage] = useState('home');
+            const [gurudwaraData] = useState({
+                name: 'Gurudwara Sadh Sangat Sahib',
+                location: 'Saiyyad Mohalla, Dehradun',
+                phone: '8191011219',
+                whatsapp: '8191011219',
+                upiId: 'mohitthakur222333@oksbi',
+                services: [
+                    {
+                        id: 1,
+                        title: 'Medical Camp',
+                        description: 'Free medical consultation and health check-up camps organized regularly.',
+                        category: 'Medical Services',
+                        icon: '🏥',
+                        details: 'Monthly medical camps with specialist doctors. Free medicines provided.',
+                        dates: 'Every 1st Sunday of month, 9:00 AM onwards',
+                        whatsappMessage: 'Hello, I would like information about Medical Camp services.'
+                    },
+                    {
+                        id: 2,
+                        title: 'Educational Support',
+                        description: 'Financial assistance for student fee payment and educational materials.',
+                        category: 'Educational Support',
+                        icon: '📚',
+                        details: 'Fee assistance for underprivileged students pursuing higher education.',
+                        dates: 'Applications accepted year-round',
+                        whatsappMessage: 'Hello, I would like information about Educational Support.'
+                    },
+                    {
+                        id: 3,
+                        title: 'Marriage Support',
+                        description: 'Financial and logistical help for marriages in the community.',
+                        category: 'Marriage & Social Support',
+                        icon: '💑',
+                        details: 'Marriage hall booking, decorations, and financial assistance available.',
+                        dates: 'Available year-round',
+                        whatsappMessage: 'Hello, I would like information about Marriage Support services.'
+                    },
+                    {
+                        id: 4,
+                        title: 'Community Langar',
+                        description: 'Community meal service available daily with nutritious food for everyone.',
+                        category: 'Community Support',
+                        icon: '🍲',
+                        details: 'Free Langar served daily. Volunteers welcome to help in preparation.',
+                        dates: 'Daily 12:00 PM and 6:00 PM',
+                        whatsappMessage: 'Hello, I would like information about Langar Service.'
+                    },
+                    {
+                        id: 5,
+                        title: 'Emergency Services',
+                        description: 'Essential funeral support service available 24/7 for the community.',
+                        category: 'Emergency Support',
+                        icon: '🕯️',
+                        details: '24/7 emergency support for funeral and last rites arrangements.',
+                        dates: 'Available round the clock',
+                        whatsappMessage: 'Hello, I would like information about Emergency Services.'
+                    },
+                    {
+                        id: 6,
+                        title: 'Event Venue Booking',
+                        description: 'Spacious community hall available for social events and celebrations.',
+                        category: 'Venue Services',
+                        icon: '🏛️',
+                        details: 'Well-equipped community hall with capacity for 200+ people.',
+                        dates: 'Available for booking',
+                        whatsappMessage: 'Hello, I would like to book the Community Hall.'
+                    }
+                ],
+                events: [
+                    {
+                        id: 1,
+                        title: 'Guru Nanak Jayanti',
+                        date: '2025-03-15',
+                        description: 'Grand celebration with Kirtan, Langar, and community gathering',
+                        image: 'https://images.unsplash.com/photo-1523438097911-512455cf3852?w=800'
+                    }
+                ],
+                committees: [
+                    { id: 1, name: 'Rajesh Kumar Singh', position: 'Head Committee', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200' },
+                    { id: 2, name: 'Priya Sharma', position: 'Finance Manager', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200' },
+                    { id: 3, name: 'Vikram Patel', position: 'Community Coordinator', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200' },
+                    { id: 4, name: 'Neha Gupta', position: 'Educational Programs', image: 'https://images.unsplash.com/photo-1517849845537-1d51a20414de?w=200' },
+                    { id: 5, name: 'Arjun Mehta', position: 'Event Organizer', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200' }
+                ]
+            });
+
+            const handleWhatsApp = (message) => {
+                window.open(`https://wa.me/${gurudwaraData.whatsapp}?text=${encodeURIComponent(message)}`, '_blank');
+            };
+
+            return (
+                <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+                    {/* Navigation */}
+                    <nav>
+                        <div className="nav-container">
+                            <div className="nav-logo" onClick={() => setCurrentPage('home')} style={{ cursor: 'pointer' }}>
+                                ☬ {gurudwaraData.name}
+                            </div>
+                            <ul className="nav-links">
+                                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('home'); }} style={{ color: currentPage === 'home' ? 'var(--kesari)' : 'inherit' }}>Home</a></li>
+                                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('services'); }} style={{ color: currentPage === 'services' ? 'var(--kesari)' : 'inherit' }}>Services</a></li>
+                                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('booking'); }} style={{ color: currentPage === 'booking' ? 'var(--kesari)' : 'inherit' }}>Booking</a></li>
+                                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('donation'); }} style={{ color: currentPage === 'donation' ? 'var(--kesari)' : 'inherit' }}>Donate</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    {/* Content */}
+                    <main style={{ flex: 1 }}>
+                        {currentPage === 'home' && <HomePage data={gurudwaraData} onNavigate={setCurrentPage} />}
+                        {currentPage === 'services' && <ServicesPage data={gurudwaraData} />}
+                        {currentPage === 'booking' && <BookingPage data={gurudwaraData} />}
+                        {currentPage === 'donation' && <DonationPage data={gurudwaraData} />}
+                    </main>
+
+                    {/* Floating Icons */}
+                    <div className="floating-icons">
+                        <a href={`https://wa.me/${gurudwaraData.whatsapp}`} target="_blank" rel="noopener noreferrer" className="floating-btn whatsapp" title="Chat on WhatsApp">💬</a>
+                        <a href={`tel:${gurudwaraData.phone}`} className="floating-btn call" title="Call us">☎️</a>
+                    </div>
+
+                    {/* Footer */}
+                    <Footer data={gurudwaraData} />
+                </div>
+            );
+        }
+
+        // ============ HOME PAGE ============
+        function HomePage({ data, onNavigate }) {
+            const heroImage = 'https://images.unsplash.com/photo-1503066211613-c17ebc9daef0?w=1200&h=600&fit=crop';
+
+            return (
+                <>
+                    {/* Hero */}
+                    <section style={{
+                        background: `linear-gradient(rgba(11, 31, 58, 0.7), rgba(11, 31, 58, 0.7)), url('${heroImage}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        color: 'var(--white)',
+                        padding: '6rem 1.5rem',
+                        textAlign: 'center',
+                        minHeight: '600px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                        <div className="container fade-in-up">
+                            <h1 style={{ marginBottom: '1rem' }}>Serving Humanity Through Seva</h1>
+                            <p style={{ fontSize: '1.25rem', marginBottom: '2.5rem', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
+                                {data.name} - A beacon of community service in {data.location}
+                            </p>
+                            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                                <button className="btn btn-primary" onClick={() => onNavigate('donation')}>💝 Donate Now</button>
+                                <button className="btn btn-secondary" onClick={() => onNavigate('services')} style={{ borderColor: 'var(--white)', color: 'var(--white)' }}>🤝 Our Services</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* About */}
+                    <section className="light-bg">
+                        <div className="container">
+                            <div className="grid grid-2" style={{ alignItems: 'center' }}>
+                                <div className="fade-in-up">
+                                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600" alt="Gurudwara" style={{ width: '100%', borderRadius: '0.75rem' }} />
+                                </div>
+                                <div className="fade-in-up stagger-2">
+                                    <h2>About {data.name}</h2>
+                                    <p style={{ marginBottom: '1rem' }}>Located in {data.location}, our Gurudwara stands as a symbol of faith and community service. We serve all sections of society without discrimination.</p>
+                                    <p>Our mission is to provide comprehensive support through medical camps, educational assistance, marriage support, and various community services.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Services */}
+                    <section>
+                        <div className="container">
+                            <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Our Services</h2>
+                            <div className="grid grid-4">
+                                {data.services.slice(0, 4).map((service, i) => (
+                                    <div key={service.id} className="card fade-in-up" style={{ [`--stagger`]: `${i * 0.1}s` }}>
+                                        <div style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '1rem' }}>{service.icon}</div>
+                                        <h3 style={{ textAlign: 'center', marginBottom: '0.75rem' }}>{service.title}</h3>
+                                        <p style={{ textAlign: 'center', marginBottom: '1.5rem' }}>{service.description}</p>
+                                        <button className="btn btn-primary btn-wide" onClick={() => onNavigate('services')}>Learn More</button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Committee */}
+                    <section className="light-bg">
+                        <div className="container">
+                            <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Committee Members</h2>
+                            <div className="grid grid-4">
+                                {data.committees.map((member) => (
+                                    <div key={member.id} className="card fade-in-up" style={{ textAlign: 'center', padding: '1.5rem' }}>
+                                        <img src={member.image} alt={member.name} style={{ width: '100px', height: '100px', borderRadius: '50%', marginBottom: '1rem', objectFit: 'cover', border: '3px solid var(--kesari)' }} />
+                                        <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>{member.name}</h3>
+                                        <p style={{ color: 'var(--kesari)', fontWeight: 600, fontSize: '0.9rem' }}>{member.position}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </>
+            );
+        }
+
+        // ============ SERVICES PAGE ============
+        function ServicesPage({ data }) {
+            return (
+                <>
+                    <section style={{ background: 'linear-gradient(135deg, var(--navy), var(--navy-light))', color: 'var(--white)', padding: '3rem 1.5rem', textAlign: 'center' }}>
+                        <div className="container fade-in-up">
+                            <h1 style={{ marginBottom: '1rem' }}>Our Community Services</h1>
+                            <p style={{ fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>Comprehensive support across healthcare, education, social welfare, and emergency services</p>
+                        </div>
+                    </section>
+
+                    <section style={{ padding: '3rem 1.5rem' }}>
+                        <div className="container">
+                            <div className="grid grid-2">
+                                {data.services.map((service, i) => (
+                                    <div key={service.id} className="card fade-in-up" style={{ borderTop: '4px solid var(--kesari)', animation: `fadeInUp 0.6s ease-out ${i * 0.1}s both` }}>
+                                        <div style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '1rem' }}>{service.icon}</div>
+                                        <h3 style={{ textAlign: 'center' }}>{service.title}</h3>
+                                        <p style={{ textAlign: 'center', marginBottom: '1.5rem' }}>{service.description}</p>
+                                        <p style={{ background: 'var(--gray-light)', padding: '1rem', borderRadius: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+                                            <strong>Details:</strong> {service.details}<br />
+                                            <strong>Schedule:</strong> {service.dates}
+                                        </p>
+                                        <div style={{ display: 'flex', gap: '1rem' }}>
+                                            <button className="btn" style={{ background: '#25D366', color: 'white', flex: 1 }} onClick={() => window.open(`https://wa.me/${data.whatsapp}?text=${encodeURIComponent(service.whatsappMessage)}`, '_blank')}>💬 WhatsApp</button>
+                                            <button className="btn" style={{ background: 'var(--navy)', color: 'white', flex: 1 }} onClick={() => window.location.href = `tel:${data.phone}`}>☎️ Call</button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </>
+            );
+        }
+
+        // ============ BOOKING PAGE ============
+        function BookingPage({ data }) {
+            const [formData, setFormData] = useState({ eventType: 'marriage', date: '', name: '', phone: '', message: '' });
+            const [submitted, setSubmitted] = useState(false);
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                const message = `Event: ${formData.eventType}\nDate: ${formData.date}\nName: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+                window.open(`https://wa.me/${data.whatsapp}?text=${encodeURIComponent(message)}`, '_blank');
+                setSubmitted(true);
+                setTimeout(() => { setSubmitted(false); setFormData({ eventType: 'marriage', date: '', name: '', phone: '', message: '' }); }, 3000);
+            };
+
+            return (
+                <>
+                    <section style={{ background: 'linear-gradient(135deg, var(--kesari), var(--kesari-dark))', color: 'var(--white)', padding: '3rem 1.5rem', textAlign: 'center' }}>
+                        <div className="container fade-in-up">
+                            <h1>Book a Service or Event</h1>
+                        </div>
+                    </section>
+
+                    <section style={{ padding: '3rem 1.5rem' }}>
+                        <div className="container">
+                            <div style={{ maxWidth: '600px', margin: '0 auto' }} className="fade-in-up">
+                                <div className="card" style={{ padding: '2.5rem' }}>
+                                    {submitted && <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '2px solid var(--success)', color: 'var(--success)', padding: '1rem', borderRadius: '0.5rem', marginBottom: '1rem' }}>✅ Booking request sent via WhatsApp!</div>}
+                                    <form onSubmit={handleSubmit}>
+                                        <div className="form-group">
+                                            <label>Event Type</label>
+                                            <select value={formData.eventType} onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}>
+                                                <option value="marriage">💑 Marriage</option>
+                                                <option value="birthday">🎂 Birthday</option>
+                                                <option value="barsi">🕯️ Barsi</option>
+                                                <option value="other">📋 Other</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Date</label>
+                                            <input type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Your Name</label>
+                                            <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Phone</label>
+                                            <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Message</label>
+                                            <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
+                                        </div>
+                                        <button type="submit" className="btn btn-primary btn-wide">📬 Request via WhatsApp</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            );
+        }
+
+        // ============ DONATION PAGE ============
+        function DonationPage({ data }) {
+            const [selectedAmount, setSelectedAmount] = useState(null);
+            const [customAmount, setCustomAmount] = useState('');
+
+            const handleDonate = () => {
+                const amount = selectedAmount || customAmount;
+                if (!amount) { alert('Please select an amount'); return; }
+                const upiString = `upi://pay?pa=${data.upiId}&pn=${encodeURIComponent(data.name)}&am=${amount}`;
+                window.location.href = upiString;
+            };
+
+            return (
+                <>
+                    <section style={{ background: 'linear-gradient(135deg, var(--kesari), var(--kesari-dark))', color: 'var(--white)', padding: '3rem 1.5rem', textAlign: 'center' }}>
+                        <div className="container fade-in-up">
+                            <h1>Make a Difference</h1>
+                            <p>Support our community services through your donation</p>
+                        </div>
+                    </section>
+
+                    <section style={{ padding: '3rem 1.5rem' }}>
+                        <div className="container">
+                            <div style={{ maxWidth: '500px', margin: '0 auto' }} className="fade-in-up">
+                                <div className="card">
+                                    <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Select Donation Amount</h2>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+                                        {[500, 1000, 2500, 5000, 10000].map(amt => (
+                                            <button key={amt} onClick={() => { setSelectedAmount(amt); setCustomAmount(''); }} style={{ padding: '1rem', borderRadius: '0.5rem', border: selectedAmount === amt ? '2px solid var(--kesari)' : '2px solid var(--gray-medium)', background: selectedAmount === amt ? 'var(--kesari)' : 'var(--white)', color: selectedAmount === amt ? 'white' : 'var(--navy)', fontWeight: 600, cursor: 'pointer' }}>₹{amt}</button>
+                                        ))}
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Custom Amount</label>
+                                        <input type="number" value={customAmount} onChange={(e) => { setCustomAmount(e.target.value); setSelectedAmount(null); }} placeholder="Enter amount" min="100" />
+                                    </div>
+                                    <div style={{ background: 'linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(255, 153, 51, 0.05))', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '2rem', textAlign: 'center', borderLeft: '4px solid var(--kesari)' }}>
+                                        <p style={{ color: 'var(--gray-dark)', marginBottom: '0.5rem' }}>Amount to Donate</p>
+                                        <p style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--kesari)' }}>₹{selectedAmount || customAmount || '0'}</p>
+                                    </div>
+                                    <button onClick={handleDonate} className="btn btn-primary btn-wide">💳 Donate via UPI</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            );
+        }
+
+        // ============ FOOTER ============
+        function Footer({ data }) {
+            return (
+                <footer style={{ background: 'linear-gradient(135deg, var(--navy), #051424)', color: 'var(--white)', padding: '3rem 1.5rem 1rem', marginTop: '4rem' }}>
+                    <div className="container">
+                        <div className="footer-content">
+                            <div>
+                                <h3>☬ {data.name}</h3>
+                                <p>Serving humanity with faith and compassion.</p>
+                            </div>
+                            <div>
+                                <h3>Quick Links</h3>
+                                <p><a href="#" style={{ color: 'var(--kesari)', textDecoration: 'none' }}>Home</a></p>
+                                <p><a href="#" style={{ color: 'var(--kesari)', textDecoration: 'none' }}>Services</a></p>
+                            </div>
+                            <div>
+                                <h3>Contact</h3>
+                                <p>📍 {data.location}</p>
+                                <p>📞 <a href={`tel:${data.phone}`} style={{ color: 'var(--kesari)', textDecoration: 'none' }}>{data.phone}</a></p>
+                            </div>
+                        </div>
+                        <div className="footer-divider">
+                            <p>© 2025 {data.name}. Built with ☬ dedication.</p>
+                        </div>
+                    </div>
+                </footer>
+            );
+        }
+
+        root.render(<App />);
+    </script>
+</body>
+</html>
